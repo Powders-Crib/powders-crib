@@ -119,8 +119,29 @@ document.addEventListener("DOMContentLoaded", () => {
     track.prepend(lastClone);
     track.append(firstClone);
 
+    const dotsContainer = document.createElement("div");
+    dotsContainer.className = "editorial-carousel__dots";
+    const dots = slides.map((_, index) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "editorial-carousel__dot";
+      dot.setAttribute("aria-label", `Seite ${index + 1}`);
+      dot.addEventListener("click", () => {
+        currentSlide = index;
+        trackPosition = index + 1;
+        updateCarousel();
+      });
+      dotsContainer.append(dot);
+      return dot;
+    });
+    carousel.append(dotsContainer);
+
     const updateCarousel = () => {
       track.style.transform = `translateX(-${trackPosition * viewport.clientWidth}px)`;
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("is-active", index === currentSlide);
+        dot.setAttribute("aria-current", index === currentSlide ? "true" : "false");
+      });
       slides.forEach((slide, index) => {
         const video = slide.querySelector("video");
 
@@ -185,6 +206,32 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (event.key === "ArrowRight") {
         nextButton.click();
       }
+    });
+
+    let swipeStart = null;
+
+    viewport.addEventListener("pointerdown", (event) => {
+      swipeStart = { x: event.clientX, y: event.clientY };
+    });
+
+    viewport.addEventListener("pointerup", (event) => {
+      if (!swipeStart) {
+        return;
+      }
+
+      const deltaX = event.clientX - swipeStart.x;
+      const deltaY = event.clientY - swipeStart.y;
+      swipeStart = null;
+
+      if (Math.abs(deltaX) < 40 || Math.abs(deltaX) < Math.abs(deltaY) * 1.5) {
+        return;
+      }
+
+      (deltaX < 0 ? nextButton : previousButton).click();
+    });
+
+    viewport.addEventListener("pointercancel", () => {
+      swipeStart = null;
     });
 
     window.addEventListener("resize", updateCarousel);

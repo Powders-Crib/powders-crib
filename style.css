@@ -1080,6 +1080,10 @@ main {
     padding: 2.5rem 1rem;
     margin-top: 3rem;
   }
+
+  .imprint-footer a {
+    font-size: 0.75rem;
+  }
 }
 
 @media (max-width: 380px) {

@@ -877,6 +877,11 @@ main {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .schoen-hier__image {
+    width: 90%;
+    max-width: none;
+  }
+
   .schoen-hier__content {
     padding-right: var(--content-inset);
   }
@@ -1015,7 +1020,13 @@ main {
   }
 
   .categories-grid {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .categories-grid__label {
+    max-width: calc(100% - 0.5rem);
+    font-size: clamp(0.55rem, 2.5vw, 0.75rem);
+    white-space: normal;
   }
 
   .schoen-hier {
@@ -1025,9 +1036,13 @@ main {
     gap: 1.5rem;
   }
 
-  .schoen-hier__image,
   .schoen-hier__sofa {
     width: 100%;
+    max-width: 100%;
+  }
+
+  .schoen-hier__image {
+    width: 90%;
     max-width: 100%;
   }
 

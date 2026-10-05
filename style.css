@@ -417,7 +417,7 @@ main {
 
 .hero-intro__video {
   position: absolute;
-  left: 18%;
+  left: 21%;
   top: 14%;
   width: 56.52%;
   height: 35%;
@@ -763,7 +763,7 @@ main {
     grid-row: 1;
     width: 100%;
     max-width: 550px;
-    margin: 0 auto 10rem;
+    margin: 0 auto 12rem;
   }
 
   .hero-intro__volume {
@@ -922,6 +922,14 @@ main {
 
   .editorial-carousel__viewport {
     grid-column: 1;
+    aspect-ratio: 1.367 / 1;
+  }
+
+  .editorial-page .editorial-carousel .carousel__slide img {
+    width: 130%;
+    max-width: none;
+    height: auto;
+    object-fit: contain;
   }
 
   .editorial-carousel__arrow {
@@ -984,7 +992,7 @@ main {
     grid-row: 1;
     width: 100%;
     max-width: 420px;
-    margin: 0 auto 10rem;
+    margin: 0 auto 12rem;
   }
 
   .hero-intro__volume {
@@ -1020,18 +1028,18 @@ main {
   }
 
   .categories-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
   }
 
-  .categories-grid__label {
-    max-width: calc(100% - 0.5rem);
-    font-size: clamp(0.55rem, 2.5vw, 0.75rem);
-    white-space: normal;
+  .schau-dich-um {
+    display: none;
   }
 
   .schoen-hier {
     width: calc(100% - 1rem);
-    margin: 4rem 0 0 1rem;
+    margin: 6.5rem 0 0 1rem;
     grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
   }
@@ -1047,6 +1055,7 @@ main {
   }
 
   .schoen-hier__content {
+    gap: 1rem;
     padding-left: calc(var(--content-inset) - 1rem);
     padding-right: var(--content-inset);
   }
@@ -1111,7 +1120,7 @@ main {
   }
 
   .hero-intro__tv-wrapper {
-    margin-bottom: 9rem;
+    margin-bottom: 11rem;
   }
 
   .hero-intro__volume {

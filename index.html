@@ -105,8 +105,14 @@
         <div class="categories-grid__label">Editorial</div>
       </a>
       <a href="branding.html" class="categories-grid__item-wrapper categories-grid__item-wrapper--branding">
-        <img src="bilder/09_branding_sw.png" alt="Branding" class="categories-grid__item">
-        <img src="bilder/09_branding_farbe.png" alt="" class="categories-grid__item-hover categories-grid__item-hover--branding">
+        <picture class="categories-grid__picture">
+          <source media="(max-width: 700px)" srcset="bilder/09_branding_sw_mobil.png">
+          <img src="bilder/09_branding_sw.png" alt="Branding" class="categories-grid__item">
+        </picture>
+        <picture class="categories-grid__picture">
+          <source media="(max-width: 700px)" srcset="bilder/09_branding_farbe_mobil.png">
+          <img src="bilder/09_branding_farbe.png" alt="" class="categories-grid__item-hover categories-grid__item-hover--branding">
+        </picture>
         <div class="categories-grid__label">Branding</div>
       </a>
     </section>

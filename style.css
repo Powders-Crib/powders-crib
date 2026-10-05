@@ -338,6 +338,54 @@ a {
   border: 0;
 }
 
+.buehne-video__poster {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: var(--ink);
+  cursor: pointer;
+}
+
+.buehne-video__poster img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.buehne-video__poster:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
+}
+
+.buehne-video__play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3.5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--paper);
+  transform: translate(-50%, -50%);
+}
+
+.buehne-video__play-icon::after {
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  width: 0;
+  height: 0;
+  border-top: 0.65rem solid transparent;
+  border-bottom: 0.65rem solid transparent;
+  border-left: 0.9rem solid var(--ink);
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
 .buehne-description {
   width: calc(100% - 2 * var(--content-inset));
   margin: 0 var(--content-inset) 4rem;
@@ -521,6 +569,10 @@ main {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+}
+
+.categories-grid__picture {
+  display: contents;
 }
 
 .categories-grid__item {
@@ -1033,13 +1085,24 @@ main {
     margin-left: calc(50% - 50vw);
   }
 
+  .categories-grid__item-hover--branding {
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    transform: translate(-50%, -50%);
+  }
+
   .schau-dich-um {
     display: none;
   }
 
   .schoen-hier {
     width: calc(100% - 1rem);
-    margin: 6.5rem 0 0 1rem;
+    margin: 5rem 0 0 1rem;
     grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
   }

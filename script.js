@@ -99,6 +99,19 @@ document.addEventListener("DOMContentLoaded", () => {
     heroVideo.play().catch(() => {});
   }
 
+  document.querySelectorAll("[data-youtube-id]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const videoId = button.dataset.youtubeId;
+      const iframe = document.createElement("iframe");
+      iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1&playsinline=1&rel=0`;
+      iframe.title = button.getAttribute("aria-label").replace("Video abspielen: ", "");
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.allowFullscreen = true;
+      button.replaceWith(iframe);
+    });
+  });
+
   document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     const track = carousel.querySelector("[data-carousel-track]");
     const slides = [...carousel.querySelectorAll(".carousel__slide")];

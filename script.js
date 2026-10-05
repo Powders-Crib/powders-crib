@@ -151,6 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (index === currentSlide) {
           video.volume = 0.25;
+          video.muted = false;
           video.play().catch(() => {});
         } else {
           video.pause();
